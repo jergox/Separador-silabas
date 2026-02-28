@@ -1,0 +1,154 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+}
+
+:root {
+    --bg: #f5f5f5;
+    --text: #333;
+    --primary: #4CAF50;
+}
+
+.dark-mode {
+    --bg: #1c1c1e;
+    --text: #eaeaea;
+    --primary: #4CAF50;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+input {
+    width: 80%;
+    max-width: 400px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    width: 60%;
+    max-width: 250px;
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.result {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.toggle-mode {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+}
+
+.explicacion {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+}
+
+.explicacion h2 {
+    color: var(--primary);
+    text-align: center;
+}
+
+.explicacion h3 {
+    color: var(--primary);
+    text-align: center;
+}
+
+.explicacion summary {
+    color: var(--primary);
+    text-align: center;
+    font-size: large;
+}
+
+.explicacion ul {
+    padding: 0;
+}
+
+.explicacion li {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.row {
+    display: flex;
+    gap: 5rem;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+textarea {
+    width: 40vw;
+    height: 250px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.dark-mode textarea:disabled {
+    background-color: var(--bg);
+    color: var(--text);
+    border-color: #444;
+    /* opcional, para que combine mejor */
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    background-color: var(--bg);
+    opacity: 0.7;
+}

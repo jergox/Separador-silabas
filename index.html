@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silabizador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js"></script>
+</head>
+
+<body>
+    <div class="toggle-mode" onclick="toggleDark()">🌙</div>
+    <div class="container">
+        <h1>Si-la-bi-za-dor</h1>
+        <div class="input-group">
+            <input type="text" id="wordInput" placeholder="Escribe una palabra" />
+            <button onclick="separar()">Separar</button>
+        </div>
+        <div class="result" id="resultArea"></div>
+    </div>
+    <div class="column">
+        <h1>Separador por lotes</h1>
+        <div class="row">
+            <div class="column">
+                <label for="inBatch">Entrada</label>
+                <textarea name="inBatch" id="inBatch" placeholder="texto"></textarea>
+            </div>
+            <div class="column">
+                <label for="outBatch">Salida</label>
+                <textarea name="outBatch" id="outBatch" disabled></textarea>
+            </div>
+        </div>
+        <button onclick="batch()">Separar texto</button>
+    </div>
+    <section class="explicacion">
+        <h2>¿Cómo funciona el algoritmo?</h2>
+        <p>
+            El algoritmo divide las palabras en sílabas siguiendo reglas del español como la presencia de diptongos,
+            hiatos y límites fonéticos.
+            Se analizan patrones vocálicos y consonánticos para aplicar normas de separación.
+        </p>
+        <details>
+            <summary>Puntos importantes</summary>
+            <p>
+            Hay que tener en cuenta que hay ciertos conjuntos de letras que debemos tratar con cuidado:
+            <ul>
+                <li>Conjuntos consonánticos: Son aquellos que tienen dos o más consonantes sin una vocal intermedia.
+                    <ul>
+                        <li>Iniciales: BL, BR, CL, CR, PL, PR, DR, TR, FL, FR, GR, GL</li>
+                        <li>Finales: MS, NS y todas las palabras que terminan en consonante que para hacer el plural solo se añade S</li>
+                    </ul>
+                </li>
+                <li>Digrafos: Conjunto de dos letras que forman un único sonido: CH, LL, RR, QU, GU</li>
+                <li>Diptongos con H: Recordad que los diptongos pueden tener H intercaladas. Ej.: Ahijado (ahi-ja-do)</li>
+                <li>Diptongos omitidos: No siempre se hace un diptongo donde se pueda hacer. Ej.: Ahuecar (a-hue-car) y no (ahu-e-car como )</li>
+            </ul>
+        </p>
+        </details>
+        <h3>Estrategia</h3>
+        <p>
+            El núcleo de cada sílaba son las vocales por lo que hay que hay que empezar detectandolas.
+            <ol>
+                <li>Detectar la primera vocal.</li>
+                <li>Asegurar que la vocal no sea de un digrafo.</li>
+                <li>Comprobar si es un diptongo, triptongo o hiato.</li>
+                <li>Aplicar una estrategia look ahead para saber cuales son las siguientes consonantes que ya no pertenencen a la silaba actual.</li>
+            </ol>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Silabizador. Creado con cariño 💚 en España.</p>
+    </footer>
+
+</body>
+
+</html>
