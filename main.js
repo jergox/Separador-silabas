@@ -74,6 +74,10 @@ function esDigrafoConU(palabra, i) {
   }
 }
 
+function tieneVocal(palabra) {
+  return /[aeiouáéíóú]/i.test(palabra);
+}
+
 function separarSilabas(palabra) {
   const vocales = ['a','e','i','o','u','á','é','í','ó','ú','ü',
                   'A','E','I','O','U','Á','É','Í','Ó','Ú','Ü'];
@@ -103,8 +107,7 @@ function separarSilabas(palabra) {
   let silabas = [];
   let i = 0;
 
-  //si es solo una letra esa es la única sílaba
-  if (palabra.length === 1) {
+  if (!tieneVocal(palabra)) {
     return [palabra];
   }
 
